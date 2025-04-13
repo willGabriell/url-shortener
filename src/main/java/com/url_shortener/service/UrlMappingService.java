@@ -38,6 +38,11 @@ public class UrlMappingService {
         return response;
     }
 
+    public String redirecionar(String urlCurta) {
+        UrlMapping url = repository.findByUrlCurta(urlCurta).orElseThrow(() -> new IllegalArgumentException("Url Inválida"));
+        return url.getUrlLonga();
+    }
+
     public String gerarUrl() {
         return UUID.randomUUID().toString().substring(0, 7);
     }
