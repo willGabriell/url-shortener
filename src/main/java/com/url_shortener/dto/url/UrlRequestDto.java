@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class UrlRequestDto {
 
-    @NotBlank
+    @NotBlank(message = "A url não pode ser nula")
     private String urlLonga;
 }

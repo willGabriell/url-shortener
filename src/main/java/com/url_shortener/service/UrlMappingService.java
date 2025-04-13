@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.url_shortener.dto.url.UrlRequestDto;
 import com.url_shortener.dto.url.UrlResponseDto;
+import com.url_shortener.exception.UrlInvalidaException;
 import com.url_shortener.model.UrlMapping;
 import com.url_shortener.repository.UrlMappingRepository;
 
@@ -39,7 +40,7 @@ public class UrlMappingService {
     }
 
     public String redirecionar(String urlCurta) {
-        UrlMapping url = repository.findByUrlCurta(urlCurta).orElseThrow(() -> new IllegalArgumentException("Url Inválida"));
+        UrlMapping url = repository.findByUrlCurta(urlCurta).orElseThrow(() -> new UrlInvalidaException("Url Inválida"));
         url.setQntCliques(url.getQntCliques() + 1);
         repository.save(url);
         return url.getUrlLonga();
