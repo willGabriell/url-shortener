@@ -16,7 +16,7 @@ Este é um projeto de estudo com o objetivo de praticar desenvolvimento backend 
 
 ## 🛠️ Tecnologias Utilizadas
 
-- Java 17
+- Java 21
 - Spring Boot
 - Spring Web
 - Spring Data JPA
