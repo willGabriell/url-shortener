@@ -40,6 +40,8 @@ public class UrlMappingService {
 
     public String redirecionar(String urlCurta) {
         UrlMapping url = repository.findByUrlCurta(urlCurta).orElseThrow(() -> new IllegalArgumentException("Url Inválida"));
+        url.setQntCliques(url.getQntCliques() + 1);
+        repository.save(url);
         return url.getUrlLonga();
     }
 
